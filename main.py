@@ -30,7 +30,7 @@ app.config['SECRET_KEY'] = os.environ.get("FLASK_KEY")
 Bootstrap5(app)
 
 # CREATE DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///movies.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", 'sqlite:///movies.db')
 db = SQLAlchemy()
 db.init_app(app)
 
